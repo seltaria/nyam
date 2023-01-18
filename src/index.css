@@ -1,0 +1,231 @@
+@import url('https://fonts.cdnfonts.com/css/trebuchet-ms-2');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@100&family=Roboto:wght@400;700&display=swap');
+
+:root {
+  --font-size: 16px;
+  --bg-light: #F2F2F2;
+  --text-grey: #666666;
+  --black: #000000;
+  --white: #FFFFFF;
+  --blue: #1698D9;
+  --blue-hover: #50b6e9;
+  --red: #D91667;
+  --red-hover: #e93f86;
+  --grey: #B3B3B3;
+  --yellow: #FFFF66;
+  --duration: 0.25s;
+}
+                                       
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding-top: 30px;
+  padding-right: 20px;
+  padding-left: 20px;
+  font-family: 'Trebuchet MS', sans-serif;
+  color: var(--black);
+  font-size: var(--font-size);
+  background: url('../public/img/Pattern.jpg');
+  overflow-x: hidden;
+}
+
+body::after {
+  position: fixed;
+  content: '';
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 5e-05) 49.88%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+h2 {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 36px;
+}
+
+
+#root {
+  z-index: 1;
+}
+
+/*=========*/
+/*  APP    */
+/*=========*/
+
+.app {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.app__title {
+  margin-top: 0;
+  margin-bottom: 24px;
+  text-align: center;
+  color: var(--white);
+  font-weight: 200;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 80px;
+}
+
+/*=========*/
+/*  CARD   */
+/*=========*/
+
+.card {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  bottom: 4px;
+  left: 4px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 20px 50px;
+  background-color: var(--bg-light);
+  clip-path: polygon(43px 0, 100% 0, 100% 100%, 0 100%, 0 43px);
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 300px;
+  height: 270px;
+  background-image: url('../public/img/Photo.png');
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.card__wrapper {
+  position: relative;
+  width: 320px;
+  height: 480px;
+  margin-bottom: 14px;
+  clip-path: polygon(45px 0, 100% 0, 100% 100%, 0 100%, 0 45px);
+  border-radius: calc(12px + 4px);
+  background-color: var(--blue);
+  cursor: pointer;
+  transition: background-color var(--duration) ease-in-out;
+}
+
+.card__wrapper:hover {
+  background-color: var(--blue-hover);
+}
+
+.card__wrapper:hover .card__weight {
+  background-color: var(--blue-hover);
+}
+
+.card__wrapper.clicked,
+.card__wrapper.clicked .card__weight {
+  background-color: var(--red);
+}
+
+.card__wrapper.clicked:hover,
+.card__wrapper.clicked:hover .card__weight {
+  background-color: var(--red-hover);
+}
+
+.card__wrapper.disabled,
+.card__wrapper.disabled .card__first-str,
+.card__wrapper.disabled .card__taste-list {
+  color: var(--grey);
+}
+
+.card__wrapper.disabled,
+.card__wrapper.disabled .card__weight {
+  background-color: var(--grey);
+}
+
+.card__wrapper.disabled .card::after {
+  opacity: 0.5;
+}
+
+.card__wrapper.disabled {
+  cursor: default;
+}
+
+.card__first-str {
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-grey);
+}
+
+.card__first-str.cancel {
+  color: var(--red-hover);
+}
+
+.card__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.card__taste {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.card__taste-list {
+  font-size: 14px;
+  color: var(--text-grey);
+}
+
+.card__weight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: auto;
+  margin-left: auto;
+  width: 80px;
+  height: 80px;
+  font-size: 42px;
+  line-height: 0.9;
+  border-radius: 50%;
+  color: var(--white);
+  background-color: var(--blue);
+  transition: background-color var(--duration) ease-in-out;
+}
+
+.card__weight span:last-child {
+  font-size: 0.5em;
+}
+
+.card__footer {
+  font-size: 13px;
+  color: var(--white);
+  text-align: center;
+}
+
+.card__btn {
+  color: var(--blue);
+  border-bottom: 1px dashed var(--blue);
+  transition-property: color, background-color;
+  transition-duration: var(--duration);
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
+}
+
+.card__btn:hover {
+  color: var(--blue-hover);
+  border-color: var(--blue-hover);
+}
