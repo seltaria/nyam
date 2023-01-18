@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/nyam/static/css/main.dd30584b.css",
+    "main.js": "/nyam/static/js/main.67329653.js",
+    "static/media/Pattern.jpg": "/nyam/static/media/Pattern.7a351f7a438cc450194b.jpg",
+    "static/media/Photo.png": "/nyam/static/media/Photo.402e20df40a0ab7fa5cd.png",
+    "index.html": "/nyam/index.html",
+    "main.dd30584b.css.map": "/nyam/static/css/main.dd30584b.css.map",
+    "main.67329653.js.map": "/nyam/static/js/main.67329653.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dd30584b.css",
+    "static/js/main.67329653.js"
+  ]
+}
